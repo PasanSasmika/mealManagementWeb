@@ -19,8 +19,6 @@ const DashboardLayout = ({ children, activeTab, setActiveTab }: LayoutProps) => 
   const menuItems = [
     { id: 'overview', label: 'Overview', icon: <LayoutDashboard size={20} /> },
     { id: 'employees', label: 'Manage Employees', icon: <Users size={20} /> },
-    { id: 'canteen', label: 'Canteen Stats', icon: <Utensils size={20} /> },
-    { id: 'settings', label: 'Settings', icon: <Settings size={20} /> },
   ];
 
   const handleNavClick = (id: string) => {

@@ -46,3 +46,8 @@ export const updateUser = async (id: string, userData: any) => {
   const response = await API.put(`/api/auth/users/${id}`, userData);
   return response.data;
 };
+
+export const getAnalytics = async () => {
+  const response = await API.get('/api/dashboard/analytics');
+  return response.data;
+};
