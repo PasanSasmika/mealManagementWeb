@@ -97,8 +97,14 @@ const Employees = () => {
       alert(`Success! Imported ${response.count} users.`);
       setShowUploadModal(false);
       fetchUsers();
-    } catch (err) {
-      alert("Bulk upload failed. Ensure role names are valid and headers match.");
+    } catch (err: unknown) {
+  if (err && typeof err === 'object' && 'response' in err) {
+    const axiosError = err as { response: { data: { message: string } } };
+    alert(axiosError.response.data.message);
+  } else {
+    alert("An unexpected error occurred.");
+  }
+
     } finally {
       setUploading(false);
       if (fileInputRef.current) fileInputRef.current.value = '';
